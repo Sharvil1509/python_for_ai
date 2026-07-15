@@ -1,4 +1,14 @@
-
+def read_notes():
+    with open("notes.txt","r") as file:
+        return(file.read())
+    
+def append_note():
+    with open("notes.txt","a") as file:
+        (file.write(input("\n" + "enter the note :"))) 
+    
+def write_note():
+    with open("notes.txt","w") as file:
+        (file.write(input("enter the note :")))
 
 running = True
 while running :
@@ -14,16 +24,16 @@ while running :
         continue
 
     if x == 1 :
-        with open("notes.txt","r") as file:
-            print(file.read())
+        notes=read_notes()
+        print(notes)
     
     elif x == 2 :
-         with open("notes.txt","a") as file:
-            file.write(input("\n" + "enter the note :"))       
+        append_note()
+        print("Appended")      
     
     elif x == 3 :
-         with open("notes.txt","w") as file:
-                file.write(input("enter the note :"))       
+        write_note()
+        print("Replaced")        
     
     elif x == 4 :
         print("Thanks for using Notes Manager!")
